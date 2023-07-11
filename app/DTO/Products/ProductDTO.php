@@ -18,9 +18,9 @@ class ProductDTO{
         public int $id_brand
     ){}
 
-    public function makeFromRequest(StoreUpdateProductRequest $request){
+    public static function makeFromRequest(StoreUpdateProductRequest $request, string $id = null){
         return new self (
-            $request->id ?? null,
+            $id ?? $request->id,
             $request->name,
             $request->price_cost,
             $request->price_sale,

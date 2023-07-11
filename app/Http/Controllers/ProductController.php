@@ -2,46 +2,62 @@
 
 namespace App\Http\Controllers;
 
+use App\DTO\Products\ProductDTO;
+use App\Http\Requests\StoreUpdateProductRequest;
 use App\Models\Product;
+use App\Services\ProductService;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class ProductController extends Controller
 {
+    public function __construct(
+        protected ProductService $service
+    ){}
+
     public function index(){
-        $product = new Product();
-        $products = $product->all();
+        $products = $this->service->getAll();
 
         return $products;
     }
 
-    public function store(Request $request){
-        $product = new Product($request->all());
-
-        $product->timestamps = false;
-        $product->save();
+    public function store(StoreUpdateProductRequest $request){
+        $product = $this->service->new(ProductDTO::makeFromRequest($request));
 
         return $product;
     }
 
     public function show(string $id){
-        $product = Product::find($id);
+        if(!$product = $this->service->getSingle($id)){
+            return response()->json([
+                'error' => 'Product not found',
+            ], Response::HTTP_NOT_FOUND);
+        }
         
         return $product;
     }
 
-    public function update(Request $request, string $id){
-        $data = $request->all();
-        $product = Product::findOrFail($id);
-        $product->update($data);
-        $product->save();
+    public function update(StoreUpdateProductRequest $request, string $id){
+        $product = $this->service->update(ProductDTO::makeFromRequest($request, $id));
+
+        if (!$product) {
+            return response()->json([
+                'error' => 'Product not found',
+            ], Response::HTTP_NOT_FOUND);
+        }
 
         return new $product;
     }
 
     public function destroy(string $id){
-        $product = Product::find($id);
-        $product->delete();
+        if (!$this->service->getSingle($id)) {
+            return response()->json([
+                'error' => 'Product not found',
+            ], Response::HTTP_NOT_FOUND);
+        }
 
-        return $product;
+        $this->service->delete($id);
+
+        return response()->json([], Response::HTTP_NO_CONTENT);
     }
 }
