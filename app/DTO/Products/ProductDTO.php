@@ -3,26 +3,24 @@
 namespace App\DTO\Products;
 
 use App\Http\Requests\StoreUpdateProductRequest;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
 
-class CreateProductDTO{
+class ProductDTO{
     public function __construct(
-        string $name,
-        float $price_cost,
-        float $price_sale,
-        float $quantity,
-        string $fabricated_at,
-        string $valid_until,
-        int $id_metric,
-        int $id_supplier,
-        int $id_brand
-    ){
-
-    }
+        public int $id,
+        public string $name,
+        public float $price_cost,
+        public float $price_sale,
+        public float $quantity,
+        public string $fabricated_at,
+        public string $valid_until,
+        public int $id_metric,
+        public int $id_supplier,
+        public int $id_brand
+    ){}
 
     public function makeFromRequest(StoreUpdateProductRequest $request){
         return new self (
+            $request->id ?? null,
             $request->name,
             $request->price_cost,
             $request->price_sale,
