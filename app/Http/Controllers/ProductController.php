@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\DTO\Products\ProductDTO;
 use App\Http\Requests\StoreUpdateProductRequest;
+use App\Http\Resources\ProductResource;
 use App\Services\ProductService;
 use Illuminate\Http\Response;
 
@@ -22,7 +23,7 @@ class ProductController extends Controller
     public function store(StoreUpdateProductRequest $request){
         $product = $this->service->new(ProductDTO::makeFromRequest($request));
 
-        return $product;
+        return new ProductResource($product);
     }
 
     public function show(string $id){
@@ -32,7 +33,7 @@ class ProductController extends Controller
             ], Response::HTTP_NOT_FOUND);
         }
         
-        return $product;
+        return new ProductResource($product);
     }
 
     public function update(StoreUpdateProductRequest $request, string $id){
@@ -44,7 +45,7 @@ class ProductController extends Controller
             ], Response::HTTP_NOT_FOUND);
         }
 
-        return new $product;
+        return new ProductResource($product);
     }
 
     public function destroy(string $id){

@@ -25,8 +25,8 @@ class ProductDTO{
             $request->price_cost,
             $request->price_sale,
             $request->quantity,
-            date_create_from_format("dd-MM-yyyy", $request->fabricated_at),
-            date_create_from_format("dd-MM-yyyy", $request->valid_until),
+            strtotime($request->fabricated_at),
+            strtotime($request->valid_until),
             $request->id_metric,
             $request->id_supplier,
             $request->id_brand
