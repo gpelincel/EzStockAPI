@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\Product;
 
 use App\DTO\Products\ProductDTO;
 use App\Models\Product;
-use App\Repositories\ProductRepositoryInterface;
+use App\Repositories\Product\ProductRepositoryInterface;
 use stdClass;
 
 class ProductEloquentORM implements ProductRepositoryInterface{
@@ -28,7 +28,6 @@ class ProductEloquentORM implements ProductRepositoryInterface{
 
     public function new(ProductDTO $dto):stdClass{
         $model = $this->model;
-        $model->timestamps = false;
 
         $product = $model->create((array) $dto);
 

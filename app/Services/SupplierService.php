@@ -2,13 +2,13 @@
 
 namespace App\Services;
 
-use App\DTO\Products\ProductDTO;
-use App\Repositories\Product\ProductRepositoryInterface;
+use App\DTO\Suppliers\SupplierDTO;
+use App\Repositories\Supplier\SupplierRepositoryInterface;
 use stdClass;
 
-class ProductService{
+class SupplierService{
     public function __construct(
-        protected ProductRepositoryInterface $repository
+        protected SupplierRepositoryInterface $repository
     ){}
 
     public function getAll():array{
@@ -19,11 +19,11 @@ class ProductService{
         return $this->repository->getSingle($id);
     }
 
-    public function new(ProductDTO $dto):stdClass{
+    public function new(SupplierDTO $dto):stdClass{
         return $this->repository->new($dto);
     }
 
-    public function update(ProductDTO $dto):stdClass|null{
+    public function update(SupplierDTO $dto):stdClass|null{
         return $this->repository->update($dto);
     }
 

@@ -2,9 +2,12 @@
 
 namespace App\Providers;
 
-use App\Repositories\ProductEloquentORM;
-use App\Repositories\ProductRepositoryInterface;
+use App\Models\Supplier;
+use App\Repositories\Product\ProductEloquentORM;
+use App\Repositories\Product\ProductRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
+use App\Repositories\Supplier\SupplierEloquentORM;
+use App\Repositories\Supplier\SupplierRepositoryInterface;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -14,6 +17,7 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(ProductRepositoryInterface::class, ProductEloquentORM::class);
+        $this->app->bind(SupplierRepositoryInterface::class, SupplierEloquentORM::class);
     }
 
     /**

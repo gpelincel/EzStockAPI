@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\Product;
 
 use App\DTO\Products\ProductDTO;
 use stdClass;
