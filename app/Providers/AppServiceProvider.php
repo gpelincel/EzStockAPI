@@ -8,6 +8,8 @@ use App\Repositories\Product\ProductRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\Supplier\SupplierEloquentORM;
 use App\Repositories\Supplier\SupplierRepositoryInterface;
+use App\Repositories\Brand\BrandEloquentORM;
+use App\Repositories\Brand\BrandRepositoryInterface;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -18,6 +20,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(ProductRepositoryInterface::class, ProductEloquentORM::class);
         $this->app->bind(SupplierRepositoryInterface::class, SupplierEloquentORM::class);
+        $this->app->bind(BrandRepositoryInterface::class, BrandEloquentORM::class);
     }
 
     /**
