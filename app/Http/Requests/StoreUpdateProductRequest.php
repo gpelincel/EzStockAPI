@@ -23,12 +23,12 @@ class StoreUpdateProductRequest extends FormRequest
     {
         return [
             'name' => 'required|max:255|min:3',
-            'price_coast' => 'required|decimal:2|min:0',
-            'price_sale' => 'required|decimal:2|min:0',
-            'quantity' => 'required|decimal:2|min:0',
-            'id_metric' => 'min:0',
-            'id_supplier' => 'min:0',
-            'id_brand' => 'min:0',
+            'price_cost' => 'required|numeric|min:0',
+            'price_sale' => 'required|numeric|min:0',
+            'quantity' => 'required|numeric|min:0',
+            'id_metric' => 'required|numeric|min:1',
+            'id_supplier' => 'required|numeric|min:1',
+            'id_brand' => 'required|numeric|min:1',
         ];
     }
 }

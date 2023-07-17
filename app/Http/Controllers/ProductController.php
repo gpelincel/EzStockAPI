@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\DTO\Products\ProductDTO;
 use App\Http\Requests\StoreUpdateProductRequest;
 use App\Http\Resources\ProductResource;
+use App\Models\Product;
 use App\Services\ProductService;
-use Illuminate\Http\Response;
 
 class ProductController extends Controller
 {
@@ -14,19 +16,31 @@ class ProductController extends Controller
         protected ProductService $service
     ){}
 
-    public function index(){
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
         $products = $this->service->getAll();
 
         return $products;
     }
 
-    public function store(StoreUpdateProductRequest $request){
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(StoreUpdateProductRequest $request)
+    {
         $product = $this->service->new(ProductDTO::makeFromRequest($request));
 
         return new ProductResource($product);
     }
 
-    public function show(string $id){
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
         if(!$product = $this->service->getSingle($id)){
             return response()->json([
                 'error' => 'Product not found',
@@ -36,8 +50,12 @@ class ProductController extends Controller
         return new ProductResource($product);
     }
 
-    public function update(StoreUpdateProductRequest $request, string $id){
-        $product = $this->service->update(ProductDTO::makeFromRequest($request, $id));
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(StoreUpdateProductRequest $request, string $id)
+    {
+        $product = $this->service->update(ProductDTO::makeFromRequest($request->validated(), $id));
 
         if (!$product) {
             return response()->json([
@@ -48,7 +66,11 @@ class ProductController extends Controller
         return new ProductResource($product);
     }
 
-    public function destroy(string $id){
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
         if (!$this->service->getSingle($id)) {
             return response()->json([
                 'error' => 'Product not found',

@@ -6,7 +6,7 @@ use App\Http\Requests\StoreUpdateProductRequest;
 
 class ProductDTO{
     public function __construct(
-        public int $id,
+        public string|null $id,
         public string $name,
         public float $price_cost,
         public float $price_sale,
@@ -25,8 +25,8 @@ class ProductDTO{
             $request->price_cost,
             $request->price_sale,
             $request->quantity,
-            strtotime($request->fabricated_at),
-            strtotime($request->valid_until),
+            $request->fabricated_at,
+            $request->valid_until,
             $request->id_metric,
             $request->id_supplier,
             $request->id_brand

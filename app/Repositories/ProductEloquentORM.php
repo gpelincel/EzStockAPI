@@ -27,7 +27,10 @@ class ProductEloquentORM implements ProductRepositoryInterface{
     }
 
     public function new(ProductDTO $dto):stdClass{
-        $product = $this->model->create((array) $dto);
+        $model = $this->model;
+        $model->timestamps = false;
+
+        $product = $model->create((array) $dto);
 
         return (object) $product->toArray();
     }
