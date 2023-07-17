@@ -55,7 +55,7 @@ class ProductController extends Controller
      */
     public function update(StoreUpdateProductRequest $request, string $id)
     {
-        $product = $this->service->update(ProductDTO::makeFromRequest($request->validated(), $id));
+        $product = $this->service->update(ProductDTO::makeFromRequest($request, $id));
 
         if (!$product) {
             return response()->json([
