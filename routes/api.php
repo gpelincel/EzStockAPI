@@ -10,6 +10,8 @@ Route::apiResources([
     'products' => ProductController::class,
     'suppliers' => SupplierController::class,
     'brands' => BrandController::class,
+    'sales' => SaleController::class,
+
 ]);
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
