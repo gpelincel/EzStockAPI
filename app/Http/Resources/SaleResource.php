@@ -19,7 +19,7 @@ class SaleResource extends JsonResource
             "id" => $this->id,
             "total_sale" => $this->total_sale,
             "total_cost" => $this->total_cost,
-            "sale_made_at" => Carbon::make($this->created_at)->format('dd/MM/yyyy'),
+            "sale_made_at" => Carbon::make($this->created_at)->format("d-M-y"),
         ];
     }
 }
