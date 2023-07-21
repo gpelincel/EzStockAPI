@@ -4,6 +4,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\SaleController;
+use App\Http\Controllers\ProductSaleController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 

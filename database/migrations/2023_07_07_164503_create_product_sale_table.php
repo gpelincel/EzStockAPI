@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('product_sale', function (Blueprint $table) {
+        Schema::create('product_sales', function (Blueprint $table) {
             $table->id();
             $table->float('quantity');
             $table->float('total_unit');
             $table->foreignId('id_product');
             $table->foreignId('id_sale');
-            $table->foreignId('id_metric');
         });
     }
 
