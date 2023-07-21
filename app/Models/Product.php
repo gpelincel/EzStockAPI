@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Product extends Model
 {
@@ -22,4 +23,8 @@ class Product extends Model
         'id_supplier',
         'id_brand'
     ];
+
+    public function brand(): HasOne{
+        return $this->hasOne(Brand::class, 'id_brand');
+    }
 }

@@ -12,7 +12,7 @@ class ProductEloquentORM implements ProductRepositoryInterface{
     {}
 
     public function getAll():array{
-        return $this->model->get()->toArray();
+        return $this->model->join('brands', 'brands.id', '=', 'products.id_brand')->get()->toArray();
     }
 
     public function getSingle(string $id): stdClass|null
