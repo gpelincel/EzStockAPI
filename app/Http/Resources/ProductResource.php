@@ -21,11 +21,11 @@ class ProductResource extends JsonResource
             "price_cost" => $this->price_cost,
             "price_sale" => $this->price_sale,
             "quantity" => $this->quantity,
-            "fabricated_at" => Carbon::make($this->fabricated_at)->format('dd-MM-yyyy'),
-            "valid_until" => Carbon::make($this->valid_until)->format('dd-MM-yyyy'),
+            "fabricated_at" => Carbon::make($this->fabricated_at)->format('d-m-Y'),
+            "valid_until" => Carbon::make($this->valid_until)->format('d-m-Y'),
             "id_metric" => $this->id_metric,
-            "id_supplier" => $this->id_supplier,
-            "id_brand" => $this->id_brand,
+            "supplier" => $this->supplier['name'],
+            "brand" => $this->brand['name']
         ];
     }
 }

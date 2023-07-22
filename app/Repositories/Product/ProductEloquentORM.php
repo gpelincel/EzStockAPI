@@ -12,12 +12,12 @@ class ProductEloquentORM implements ProductRepositoryInterface{
     {}
 
     public function getAll():array{
-        return $this->model->join('brands', 'brands.id', '=', 'products.id_brand')->get()->toArray();
+        return $this->model->with('brand')->get()->toArray();
     }
 
     public function getSingle(string $id): stdClass|null
     {
-        $product = $this->model->find($id);
+        $product = $this->model->with('brand')->with('supplier')->find($id);
 
         if (!$product) {
             return null;

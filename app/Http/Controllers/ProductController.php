@@ -7,6 +7,7 @@ use App\DTO\Products\ProductDTO;
 use App\Http\Requests\StoreUpdateProductRequest;
 use App\Http\Resources\ProductResource;
 use App\Services\ProductService;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
@@ -44,7 +45,8 @@ class ProductController extends Controller
                 'error' => 'Product not found',
             ], Response::HTTP_NOT_FOUND);
         }
-        
+
+
         return new ProductResource($product);
     }
 
