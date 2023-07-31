@@ -12,12 +12,12 @@ class ProductSaleEloquentORM implements ProductSaleRepositoryInterface{
     {}
 
     public function getAll():array{
-        return $this->model->get()->toArray();
+        return $this->model->with('products')->with('sales')->get()->toArray();
     }
 
     public function getSingle(string $id): stdClass|null
     {
-        $product_sale = $this->model->find($id);
+        $product_sale = $this->model->with('products')->with('sales')->find($id);
 
         if (!$product_sale) {
             return null;

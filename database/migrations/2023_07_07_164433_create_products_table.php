@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Brand;
+use App\Models\Supplier;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -20,8 +22,8 @@ return new class extends Migration
             $table->date('fabricated_at');
             $table->date('valid_until');
             $table->foreignId('id_metric');
-            $table->foreignId('id_supplier');
-            $table->foreignId('id_brand');
+            $table->foreignIdFor(Supplier::class,'id_supplier');
+            $table->foreignIdFor(Brand::class,'id_brand');
         });
     }
 

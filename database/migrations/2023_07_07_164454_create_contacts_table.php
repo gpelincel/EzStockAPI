@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Supplier;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('ddd');
             $table->string('phone');
-            $table->foreignId('id_supplier');
+            $table->foreignIdFor(Supplier::class,'id_supplier');
         });
     }
 

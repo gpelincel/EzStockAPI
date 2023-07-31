@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Product;
+use App\Models\Sale;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->float('quantity');
             $table->float('total_unit');
-            $table->foreignId('id_product');
-            $table->foreignId('id_sale');
+            $table->foreignIdFor(Product::class, 'id_product');
+            $table->foreignIdFor(Sale::class, 'id_sale');
         });
     }
 

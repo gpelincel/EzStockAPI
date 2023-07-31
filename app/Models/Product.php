@@ -33,4 +33,8 @@ class Product extends Model
     public function supplier(): BelongsTo{
         return $this->belongsTo(Supplier::class, 'id_supplier', 'id');
     }
+
+    public function product_sales(): BelongsTo{
+        return $this->belongsTo(ProductSale::class, 'id_product_sales', 'id');
+    }
 }

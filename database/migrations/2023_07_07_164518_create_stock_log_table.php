@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Product;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->enum('in_out', ['in', 'out']);
             $table->float('quantity');
-            $table->foreignId('id_product');
+            $table->foreignIdFor(Product::class,'id_product');
             $table->foreignId('id_metric');
             $table->timestamps();
         });
