@@ -21,10 +21,10 @@ class ProductSale extends Model
 
     public function products():HasMany
     {
-        return $this->hasMany(Product::class, 'id_product', 'id_product');
+        return $this->hasMany(Product::class, 'id', 'id_product');
     }
 
     public function sales():HasMany{
-        return $this->hasMany(Sale::class, 'id_sale', 'id_sale');
+        return $this->hasMany(Sale::class, 'id', 'id_sale');
     }
 }
