@@ -23,7 +23,7 @@ class ProductResource extends JsonResource
             "quantity" => $this->quantity,
             "fabricated_at" => Carbon::make($this->fabricated_at)->format('d-m-Y'),
             "valid_until" => Carbon::make($this->valid_until)->format('d-m-Y'),
-            "id_metric" => $this->id_metric,
+            "metric" => $this->metric['metric'],
             "supplier" => $this->supplier['name'],
             "brand" => $this->brand['name']
         ];

@@ -25,7 +25,7 @@ class ProductFactory extends Factory
             'quantity' => fake()->randomFloat(2,0, 999),
             'fabricated_at' => fake()->date(),
             'valid_until' => fake()->date(),
-            'id_metric' => fake()->randomNumber(2),
+            'id_metric' => fake()->randomNumber(1),
             'id_supplier' => fake()->randomNumber(2),
             'id_brand' => fake()->randomNumber(2)
         ];

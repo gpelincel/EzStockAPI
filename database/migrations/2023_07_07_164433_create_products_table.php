@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Brand;
+use App\Models\Metric;
 use App\Models\Supplier;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -21,7 +22,7 @@ return new class extends Migration
             $table->float('quantity');
             $table->date('fabricated_at');
             $table->date('valid_until');
-            $table->foreignId('id_metric');
+            $table->foreignIdFor(Metric::class,'id_metric');
             $table->foreignIdFor(Supplier::class,'id_supplier');
             $table->foreignIdFor(Brand::class,'id_brand');
         });

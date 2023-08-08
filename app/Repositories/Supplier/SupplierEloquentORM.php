@@ -15,7 +15,7 @@ class SupplierEloquentORM implements SupplierRepositoryInterface{
         return $this->model->get()->toArray();
     }
 
-    public function getSingle(string $id): stdClass|null
+    public function getSingle(int $id): stdClass|null
     {
         $supplier = $this->model->find($id);
 
@@ -44,7 +44,7 @@ class SupplierEloquentORM implements SupplierRepositoryInterface{
         return (object) $supplier->toArray();
     }
 
-    public function delete(string $id): void
+    public function delete(int $id): void
     {
         $this->model->findOrFail($id)->delete();
     }

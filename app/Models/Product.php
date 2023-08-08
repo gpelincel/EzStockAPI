@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use App\Models\Brand;
 
 class Product extends Model
@@ -36,5 +35,9 @@ class Product extends Model
 
     public function product_sales(): BelongsTo{
         return $this->belongsTo(ProductSale::class, 'id_product_sales', 'id');
+    }
+
+    public function metric(): BelongsTo{
+        return $this->belongsTo(Metric::class, 'id_metric', 'id');
     }
 }
