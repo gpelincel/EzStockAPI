@@ -1,68 +1,27 @@
 
-# Setup Docker Laravel 10 com PHP 8.1
-[Assine a Academy, e Seja VIP!](https://academy.especializati.com.br)
-
-### Passo a passo
-Clone Repositório
-```sh
-git clone -b laravel-10-com-php-8.1 https://github.com/especializati/setup-docker-laravel.git app-laravel
-```
-```sh
-cd app-laravel
-```
+![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
 
 
-Crie o Arquivo .env
-```sh
-cp .env.example .env
-```
+# EzStockAPI
+
+API for modern POS (point of selling) system 💲📊
 
 
-Atualize as variáveis de ambiente do arquivo .env
-```dosini
-APP_NAME=EspecializaTi
-APP_URL=http://localhost:8989
+![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
 
-DB_CONNECTION=mysql
-DB_HOST=mysql
-DB_PORT=3306
-DB_DATABASE=nome_que_desejar_db
-DB_USERNAME=nome_usuario
-DB_PASSWORD=senha_aqui
+![Badge licença](http://img.shields.io/static/v1?label=LICENSE&message=MIT&coor=F0F&style=for-the-badge)
 
-CACHE_DRIVER=redis
-QUEUE_CONNECTION=redis
-SESSION_DRIVER=redis
+![Badge laravel](http://img.shields.io/static/v1?label=&message=LARAVEL&color=000&style=for-the-badge&logo=laravel)
 
-REDIS_HOST=redis
-REDIS_PASSWORD=null
-REDIS_PORT=6379
-```
+![Badge docker](http://img.shields.io/static/v1?label=&message=DOCKER&color=0db7ed&style=for-the-badge&logo=docker&logoColor=white)
 
 
-Suba os containers do projeto
-```sh
-docker-compose up -d
-```
 
 
-Acesse o container app
-```sh
-docker-compose exec app bash
-```
 
+## Features
 
-Instale as dependências do projeto
-```sh
-composer install
-```
+- Products registration 🗃️
+- Inventory control 📦
+- Sales control 💹
 
-
-Gere a key do projeto Laravel
-```sh
-php artisan key:generate
-```
-
-
-Acesse o projeto
-[http://localhost:8989](http://localhost:8989)
