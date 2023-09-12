@@ -10,8 +10,9 @@ API for modern POS (point of selling) system 💲📊
 
 ![Badge licença](http://img.shields.io/static/v1?label=LICENSE&message=MIT&coor=F0F&style=for-the-badge)
 
-![Badge laravel](http://img.shields.io/static/v1?label=&message=LARAVEL&color=000&style=for-the-badge&logo=laravel)
 ![Badge docker](http://img.shields.io/static/v1?label=&message=DOCKER&color=0db7ed&style=for-the-badge&logo=docker&logoColor=white)
+![Badge laravel](http://img.shields.io/static/v1?label=&message=LARAVEL&color=000&style=for-the-badge&logo=laravel)
+![Badge mysql](http://img.shields.io/static/v1?label=&message=MySQL&color=C6C6C6&style=for-the-badge&logo=mysql)
 
 ## Features
 
